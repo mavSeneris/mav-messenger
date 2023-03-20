@@ -260,6 +260,7 @@ label {
   display: flex;
   align-items: center;
   gap: 10px;
+  
 }
 
 .user-chat > img{
@@ -276,7 +277,27 @@ label {
   color: #686868;
 }
 
+/* Chats */
+.chats{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
 
+.user-chat-info{
+  font-weight: var(--fw-bold);
+}
+
+.user-chat-info-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.user-chat-info-wrapper > p{
+  font-size: var(--fs-xsmall);
+}
 
 /* !error-page styles */
 #error-page {
