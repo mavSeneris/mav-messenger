@@ -190,6 +190,7 @@ form>input {
 
 /* Navbar */
 .navbar {
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -313,6 +314,7 @@ form>input {
 }
 
 .chat-header {
+  height: 50px;
   background-color: var(--med-color);
   display: flex;
   justify-content: space-between;
@@ -334,12 +336,13 @@ form>input {
 
 /* Chat-Messages */
 .messages{
-  height: calc(100% - 90px);
+  height: calc(100% - 100px);
   padding: 10px;
 }
 
 /* Chat-Input */
 .input {
+  height: 50px;
   width: 100%;
   padding: 10px;
   background-color: var(--secondary-color);
