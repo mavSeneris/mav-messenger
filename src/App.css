@@ -166,7 +166,21 @@ label {
   max-width: 1250px;
   height: 70vh;
   min-height: 500px;
+  display: flex;
 }
+
+.sidebar{
+  flex: 1.3;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.chat{
+  flex: 3;
+  height: 100%;
+  border: 1px solid red;
+}
+
 
 
 /* !error-page styles */
