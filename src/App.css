@@ -361,6 +361,14 @@ form>input {
   align-items: center;
 }
 
+.clip-icon{
+  cursor: pointer;
+}
+
+.send-icon{
+  cursor: pointer;
+}
+
 /* !error-page styles */
 #error-page {
   height: 100vh;
