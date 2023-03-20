@@ -114,7 +114,7 @@ form {
   gap: 10px;
 }
 
-input {
+form > input {
   /* border: none; */
   outline: none;
   border: 1px solid var(--primary-color);
@@ -187,6 +187,7 @@ label {
   flex: 2;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -203,7 +204,7 @@ label {
 .user {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
 }
 
 .user-nav-avatar {
@@ -212,6 +213,8 @@ label {
   border-radius: 50%;
   background-color: #fff;
   object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
 }
 
 .user-name{
@@ -226,7 +229,51 @@ label {
   background-color: var(--secondary-color);
   font-size: var(--fs-xsmall);
   height: 20px;
-  border-radius: 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  
+  /* Add clicking effect */
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.user-logout-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Search */
+.search{
+  width: 100%;
+  border-bottom: 1px solid var(--primary-color);
+  padding: 10px;
+}
+
+.search-form > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+.user-chat{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-chat > img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.search-error{
+  font-size: var(--fs-xsmall);
+  font-weight: var(--fw-med);
+  padding: 10px;
+  color: #686868;
 }
 
 
