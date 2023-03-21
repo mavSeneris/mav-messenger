@@ -1,30 +1,60 @@
-import React from 'react'
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../firebase';
+import React, { useState } from 'react'
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { auth, storage, db } from '../firebase';
+import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
+  const [err, setErr] = useState(false)
+  const navigate = useNavigate()
 
-
-  function handdleSubmit(e) {
+  async function handdleSubmit(e) {
     e.preventDefault()
-    const username = e.target[0].value;
+    const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
     const file = e.target[3].files[0]
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        // ...
-        console.log(user)
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password)
 
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
+      const metadata = {
+        contentType: 'image/jpeg'
+      };
+
+      // Upload file and metadata to the object 'images/mountains.jpg'
+      const storageRef = ref(storage, displayName);
+      const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+      // Listen for state changes, errors, and completion of the upload.
+      uploadTask.on(
+        (error) => {
+          setErr(false);
+        },
+        () => {
+          // Upload completed successfully, now we can get the download URL
+          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+            await updateProfile(res.user, {
+              displayName,
+              photoURL: downloadURL,
+            });
+
+            await setDoc(doc(db, "users", res.user.uid), {
+              uid: res.user.uid,
+              displayName,
+              email,
+              photoURL: downloadURL,
+            });
+
+            await setDoc(doc(db, "userChats", res.user.id), {})
+          });
+
+        }
+      );
+
+    } catch (err) {
+      setErr(true)
+    }
 
   }
 
@@ -36,7 +66,7 @@ export default function Register() {
         <span className='form-logo'>MAV</span>
         <span className='form-title'>Register</span>
         <form onSubmit={handdleSubmit}>
-          <input type={'text'} placeholder='username' />
+          <input type={'text'} placeholder='displayName' />
           <input type={'email'} placeholder='email' />
           <input type={'password'} placeholder='password' />
           <input style={{ display: "none" }} type={'file'} id='file' />
@@ -48,6 +78,7 @@ export default function Register() {
             <span className='file-text'>add an avatar</span>
           </label>
           <button className='signIn-btn'>Sign Up</button>
+          {err && <span>Oops something went wrong!</span>}
         </form>
         <span className='login-link'>You have an account? Login</span>
       </div>

@@ -83,8 +83,8 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 25%;
-  min-width: 300px;
+  width: 30%;
+  min-width: 400px;
   height: max-content;
   padding: 20px;
   border-radius: 10px;

@@ -7,7 +7,7 @@ export default function Root() {
   return (
     <div>
       {/* <Login/> */}
-      <Register/>
+      {/* <Register/> */}
       {/* <Home/> */}
     </div>
   )
