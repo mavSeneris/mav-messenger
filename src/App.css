@@ -338,9 +338,10 @@ form>input {
 .messages{
   height: calc(100% - 100px);
   padding: 10px;
+  overflow: scroll;
 }
 
-.message{
+.message, .owner{
   display: flex;
   align-items: center;
   padding: 10px;
@@ -372,6 +373,24 @@ form>input {
   padding: 15px;
   border-radius: 0px 10px 10px 10px;
 }
+
+.owner{
+  flex-direction: row-reverse;
+}
+
+.owner .message-content{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 15px;
+  border-radius: 0px 10px 10px 10px;
+}
+
+
+.owner .message-content{
+  border-radius: 10px 0 10px 10px;
+}
+
+
 
 /* Chat-Input */
 .input {
