@@ -1,17 +1,34 @@
 import React from 'react'
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebase';
 
 export default function Register() {
 
 
-  function handdleSubmit(e){
+  function handdleSubmit(e) {
     e.preventDefault()
     const username = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
     const file = e.target[3].files[0]
 
-    console.log(file)
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+        console.log(user)
+
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+
   }
+
+
 
   return (
     <div className='form-container'>
