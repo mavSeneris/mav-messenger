@@ -1,11 +1,9 @@
-import React, {useContext} from 'react'
-import { AuthContext } from '../context/Auth';
-
+import React from 'react'
 
 
 export default function Root() {
-const {currentUser} = useContext(AuthContext);
-console.log(currentUser)
+  
+
   return (
     <div>
       

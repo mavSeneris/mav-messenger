@@ -3,11 +3,11 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { auth, storage, db } from '../firebase';
 import { doc, setDoc } from "firebase/firestore";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Register() {
-  const [err, setErr] = useState(false)
-  const navigate = useNavigate()
+  const [err, setErr] = useState(false);
+  const navigate = useNavigate();
 
   async function handdleSubmit(e) {
     e.preventDefault()
@@ -81,7 +81,7 @@ export default function Register() {
           <button className='signIn-btn'>Sign Up</button>
           {err && <span>Oops something went wrong!</span>}
         </form>
-        <span className='login-link'>You have an account? Login</span>
+        <p>You don't have an account? <Link to="/login">Login</Link></p>
       </div>
     </div>
   )
