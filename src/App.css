@@ -345,9 +345,9 @@ form>input {
 .message,
 .owner {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   padding: 10px;
-  gap: 10px;
+  gap: 15px;
 }
 
 .message-info {
@@ -368,6 +368,7 @@ form>input {
   color: #686868;
   font-size: var(--fs-xsmall);
   font-weight: var(--fw-med);
+  width: max-content;
 }
 
 .message-content {
@@ -393,16 +394,20 @@ form>input {
 }
 
 .owner .message-content{
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  padding: 15px;
-  border-radius: 0px 10px 10px 10px;
+  flex-direction: column;
+  align-items: end;
 }
 
-
-.owner .message-content{
-  border-radius: 10px 0 10px 10px;
+.owner .message-text{
+  max-width: max-content;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-weight: var(--fw-med);
+  padding: 15px;
+  border-radius: 10px 0px 10px 10px;
 } */
+
+
 
 
 
