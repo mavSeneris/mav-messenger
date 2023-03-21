@@ -10,26 +10,30 @@ import App from './App'
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import { AuthContextProvider } from './context/Auth';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <ErrorPage/>
+    errorElement: <ErrorPage />
   },
   {
     path: "login",
-    element: <Login/>
+    element: <Login />
   },
   {
     path: "register",
-    element: <Register/>
+    element: <Register />
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <AuthContextProvider>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </AuthContextProvider>
+
 );

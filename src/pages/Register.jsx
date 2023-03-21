@@ -48,6 +48,7 @@ export default function Register() {
 
             await setDoc(doc(db, "userChats", res.user.id), {})
           });
+          navigate('/')
 
         }
       );
