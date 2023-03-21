@@ -8,8 +8,8 @@ export default function Message() {
         <span>Just now</span>
       </div>
       <div className='message-content'>
-        <p>All I know is Roblox!</p>
-        {/* <img src='https://s.yimg.com/ny/api/res/1.2/vESuGu0Ia7uVC4Ua356klw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQyNw--/https://s.yimg.com/os/creatr-uploaded-images/2022-01/60559560-7ed8-11ec-bffb-71ef534a2323'/> */}
+        <p className='message-text'>All I know is Roblox!</p>
+        <img className='message-img' src='https://s.yimg.com/ny/api/res/1.2/vESuGu0Ia7uVC4Ua356klw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQyNw--/https://s.yimg.com/os/creatr-uploaded-images/2022-01/60559560-7ed8-11ec-bffb-71ef534a2323'/>
       </div>
     </div>
   )
