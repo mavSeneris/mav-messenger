@@ -106,7 +106,7 @@ img {
     width: 100vw;
     height: 100vh;
     border-radius: 0;
-    min-width: 500px;
+    min-width: 100%;
 
 
   }
@@ -138,6 +138,7 @@ form {
 
 form>input {
   /* border: none; */
+  width: 100%;
   outline: none;
   border: 1px solid var(--primary-color);
   border-radius: 10px;
