@@ -43,11 +43,9 @@ export default function Register() {
               email,
               photoURL: downloadURL,
             });
-
-            await setDoc(doc(db, "userChats", res.user.id), {})
+            await setDoc(doc(db, "userChats", res.user.uid), {})
           });
           navigate('/')
-
         }
       );
 
